@@ -10,8 +10,8 @@ RUN apt-get -y install php8.0-bcmath
 RUN echo "ServerName docker_localhost" >> /etc/apache2/apache2.conf
 RUN a2enmod rewrite && chown -R www-data:www-data /var/www
 
-RUN cd ~ && curl -sS https://getcomposer.org/installer -o composer-setup.php
-RUN cd ~ && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
+RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 ENV APACHE_RUN_USER www-data ENV APACHE_RUN_GROUP www-data ENV APACHE_LOG_DIR /var/log/apache2
 
