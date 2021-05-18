@@ -7,7 +7,8 @@ RUN apt-get -y install php8.0-cli php8.0-common php8.0-mysql
 RUN apt-get -y install libapache2-mod-php8.0 php8.0-gd php8.0-intl php8.0-mbstring php8.0-mcrypt php8.0-soap php8.0-xml php8.0-xmlrpc php8.0-zip php8.0-curl php8.0-dev
 RUN apt-get -y install php8.0-bcmath
 
-CMD apt-get update --fix-missing && apt-get -y install mysql-client
+CMD apt -y install zip unzip php-zip
+CMD apt-get -y update --fix-missing && apt-get -y install mysql-client
 
 RUN echo "ServerName docker_localhost" >> /etc/apache2/apache2.conf
 RUN a2enmod rewrite && chown -R www-data:www-data /var/www
